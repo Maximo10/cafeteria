@@ -29,7 +29,7 @@ public class camarero extends Thread{
                     System.out.println(nombrecama+" atiende a "+ cliente_actual.getNombre());
                     Random aleatorio=new Random();
                     int tiempo_prepa= aleatorio.nextInt(3000)+2000;
-                    System.out.println(nombrecama+ " prepara cafe para " +cliente_actual.getNombre()+ "(tardará "+ (tiempo_prepa/1000)+" ms)");
+                    System.out.println(nombrecama+ " prepara cafe para " +cliente_actual.getNombre()+ "(tardará "+ (tiempo_prepa/1000)+"s)");
                     Thread.sleep(tiempo_prepa);
 
                     if(tiempo_prepa<=cliente_actual.getTiempo_espera()){
