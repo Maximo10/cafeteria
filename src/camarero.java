@@ -13,11 +13,35 @@ public class camarero extends Thread{
     @Override
     public void run(){
         System.out.println(nombrecama+" ha comenzado a atender....\n");
-        cliente cliente_actual;
-        for (cliente clientes:list_clientes){
-            if(cliente_actual==clientes){
+        while (true){
+            cliente cliente_actual=null;
 
+            if(!list_clientes.isEmpty()){
+                cliente_actual=list_clientes.remove(0);
+            }else{
+                break;
+            }
+            //sumulacion
+            if(cliente_actual !=null){
+                try {
+                    System.out.println(nombrecama+" atiende a "+ cliente_actual.getNombre());
+                    int tiempo_prepa= (int) (Math.random()*3000)+2000;
+                    System.out.println(nombrecama+ " prepara cafe para " +cliente_actual.getNombre()+ "(tardará "+ tiempo_prepa+" ms)");
+                    Thread.sleep(tiempo_prepa);
+
+                    if(tiempo_prepa<=cliente_actual.getTiempo_espera()){
+                        System.out.println(cliente_actual.getNombre()+ " recibe su cafe.\n");
+                        list_atendidos.add(cliente_actual);
+                    }else {
+                        System.out.println(cliente_actual.getNombre() + " se fue sin su cafe");
+                    }
+
+                } catch (InterruptedException e) {
+                    // Si el hilo se interrumpe mientras duerme, cae aquí
+                    e.printStackTrace();
+                }
             }
         }
+        System.out.println(nombrecama + "ha terminado su turno.\n");
     }
 }

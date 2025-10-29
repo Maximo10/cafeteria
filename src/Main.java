@@ -9,7 +9,7 @@ public class Main {
 
         //crear 6 clietentes
         cliente cli1=new cliente("Pedro",3000);
-        cliente cli2=new cliente("Anton",3000);
+        cliente cli2=new cliente("Antón",3000);
         cliente cli3=new cliente("Angel",3000);
         cliente cli4=new cliente("Gonzalo",3000);
         cliente cli5=new cliente("Ana",3000);
@@ -24,7 +24,7 @@ public class Main {
         list_clientes.add(cli6);
 
         //crear a los camareros
-        camarero cama1=new camarero("Alejandro",list_clientes,list_atendidos);
+        camarero cama1=new camarero("Alex",list_clientes,list_atendidos);
         camarero cama2=new camarero("Perez",list_clientes,list_atendidos);
 
         //inicio hilos
@@ -35,6 +35,11 @@ public class Main {
         cama1.join();
         cama2.join();
 
-        System.out.println("Tdods los ccliantes han sido antendidos....");
+        System.out.println("Todos los cliantes han sido antendidos....");
+
+        System.out.println("Clientes atendidos:");
+        for (cliente cli:list_atendidos){
+            System.out.println("- " + cli.getNombre());
+        }
     }
 }
