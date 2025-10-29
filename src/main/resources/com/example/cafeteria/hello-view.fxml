@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="547.0" prefWidth="621.0"
+      style="-fx-background-color: white; -fx-border-color: black;"
+      xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.cafeteria.HelloController">
+
+    <!-- Título -->
+    <Label layoutX="21.0" layoutY="14.0" prefHeight="58.0" prefWidth="585.0"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #e69138; -fx-border-color: black; -fx-border-radius: 12;"
+           text="Simulación de Cafetería" />
+
+    <!-- Contenedor principal -->
+    <HBox layoutX="21.0" layoutY="77.0" prefHeight="411.0" prefWidth="585.0" spacing="20.0">
+        <VBox prefHeight="411.0" prefWidth="271.0">
+            <children>
+                <!-- Camarero Alex -->
+                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff0f5; -fx-padding: 10; -fx-border-color: #333; -fx-border-radius: 5; -fx-background-radius: 5;">
+                    <children>
+                        <Label layoutX="11.0" layoutY="3.0" prefHeight="35.0" prefWidth="249.0"
+                               style="-fx-font-weight: bold; -fx-font-size: 20px; -fx-alignment: center;"
+                               text="Camarero Alex" />
+                        <ListView fx:id="listCamaAlex" layoutX="12.0" layoutY="38.0" prefHeight="144.0" prefWidth="249.0" />
+                    </children>
+                </Pane>
+
+                <Separator prefHeight="21.0" prefWidth="271.0" />
+
+                <!-- Camarero Perez -->
+                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff0f5; -fx-padding: 10; -fx-border-color: #333; -fx-border-radius: 5; -fx-background-radius: 5;">
+                    <children>
+                        <Label layoutX="11.0" layoutY="3.0" prefHeight="35.0" prefWidth="249.0"
+                               style="-fx-font-weight: bold; -fx-font-size: 20px; -fx-alignment: center;"
+                               text="Camarero Perez" />
+                        <ListView fx:id="listCamaPerez" layoutX="12.0" layoutY="38.0" prefHeight="144.0" prefWidth="249.0" />
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
+
+        <VBox prefHeight="411.0" prefWidth="295.0">
+            <children>
+                <!-- Panel Clientes Pendientes -->
+                <VBox prefHeight="200.0" prefWidth="275.0" spacing="10"
+                      style="-fx-background-color: #f0f8ff; -fx-padding: 10; -fx-border-color: #333; -fx-border-radius: 5; -fx-background-radius: 5;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Clientes Pendientes" />
+                    <ListView fx:id="listPendientes" prefHeight="144.0" prefWidth="249.0" />
+                </VBox>
+
+                <Separator prefWidth="200.0" />
+
+                <!-- Panel Clientes Atendidos -->
+                <VBox prefHeight="200.0" prefWidth="275.0" spacing="10"
+                      style="-fx-background-color: #f5fff0; -fx-padding: 10; -fx-border-color: #333; -fx-border-radius: 5; -fx-background-radius: 5;">
+                    <Label prefHeight="20.0" prefWidth="253.0" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Clientes Atendidos" />
+                    <ListView fx:id="listAtendidos" prefHeight="144.0" prefWidth="249.0" />
+                </VBox>
+            </children>
+        </VBox>
+    </HBox>
+
+    <!-- Botón iniciar simulación -->
+    <Button fx:id="btnIniciar" layoutX="221.0" layoutY="499.0" onAction="#iniciarSimulacion" text="Iniciar Simulación" />
+
+</Pane>
