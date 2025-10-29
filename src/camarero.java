@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Random;
+
 public class camarero extends Thread{
     private String nombrecama;
     private ArrayList<cliente> list_clientes;
@@ -25,8 +27,9 @@ public class camarero extends Thread{
             if(cliente_actual !=null){
                 try {
                     System.out.println(nombrecama+" atiende a "+ cliente_actual.getNombre());
-                    int tiempo_prepa= (int) (Math.random()*3000)+2000;
-                    System.out.println(nombrecama+ " prepara cafe para " +cliente_actual.getNombre()+ "(tardará "+ tiempo_prepa+" ms)");
+                    Random aleatorio=new Random();
+                    int tiempo_prepa= aleatorio.nextInt(3000)+2000;
+                    System.out.println(nombrecama+ " prepara cafe para " +cliente_actual.getNombre()+ "(tardará "+ (tiempo_prepa/1000)+" ms)");
                     Thread.sleep(tiempo_prepa);
 
                     if(tiempo_prepa<=cliente_actual.getTiempo_espera()){
